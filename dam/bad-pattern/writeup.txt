@@ -1,0 +1,20 @@
+Compared the decrypted string with the lorum ipsum string. Realized that it used a cyclic pattern [0,1,2,3,4];
+
+The encoding script could look somtehing like:
+
+def encode():
+    a = 0
+    b=0
+    lorumenc=""
+    for i in lorum:
+        lorumenc = lorumenc + (chr(ord(lorum[a])+b))
+        a = a+1
+        if b>=4:    
+            b = 0
+        else:
+            b = b + 1
+    return(lorumenc)
+       
+To decode, all you would have to do is change chr(ord(lorum[a])+b) to chr(ord(lorum[a])-b).
+
+Used encode function to encode "bagelarenotwholewheatsometimes", which gave the flag dam{bbihpasgqstxjrpexjhettqpitjohw}
