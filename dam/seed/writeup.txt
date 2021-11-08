@@ -1,0 +1,2 @@
+The seed for the random-function is the current machinetime, which is the amount of seconds since January 1, 1970, 00:00:00 (UTC). time.time() gives current time.
+By using a for-loop to decrement that value and check if flag = hash(random.random()) includes 'b9ff3ebf', it eventually gave the flag: dam{f6f73f022249b67e0ff840c8635d95812bbb5437170464863eda8ba2b9ff3ebf}
