@@ -1,6 +1,30 @@
-Compared the decrypted string with the lorum ipsum string. Realized that it used a cyclic pattern [0,1,2,3,4];
+Compared the decrypted string with the lorum ipsum string. Realized that it used a cyclic pattern [0,+1,+2,+3,+4];
+Ex.:
+    L + 0 = L
+    o + 1 = p
+    r + 2 = r
+    e + 3 = h
+    m + 4 = q
+    " " + 0 = " "
+    i + 1 = j
+    [...]
 
-The encoding script could look somtehing like:
+The decoding script could look something like:
+
+def decode(text):
+    a = 0
+    b=0
+    decoded = ""
+    for i in text:
+        decoded = decoded + (chr(ord(text[a])-b))
+        a = a+1
+        if b>=4:    
+            b = 0
+        else:
+            b = b + 1
+    return(decoded)
+
+The encoding script could look something like:
 
 def encode():
     a = 0
